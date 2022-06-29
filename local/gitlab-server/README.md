@@ -1,3 +1,7 @@
+# Configuration
+
+see config in [examples folder](./examples/)
+
 # How to transfer docker images from computers to computers
 
 [https://stackoverflow.com/a/23938978/10459230](https://stackoverflow.com/a/23938978/10459230)
