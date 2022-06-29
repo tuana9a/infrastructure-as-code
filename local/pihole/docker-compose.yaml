@@ -7,7 +7,7 @@ services:
     image: pihole/pihole:2022.05
     # For DHCP it is recommended to remove these ports and instead add: network_mode: "host"
     networks:
-      customnetwork:
+      piholenetwork:
         ipv4_address: 172.20.0.53
     environment:
       TZ: 'Asia/Bangkok'
@@ -18,7 +18,7 @@ services:
     restart: unless-stopped
 
 networks:
-  customnetwork: # name of docker network
+  piholenetwork: # name of docker network
     ipam:
       config:
         - subnet: 172.20.0.0/16
