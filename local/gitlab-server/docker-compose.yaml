@@ -7,38 +7,16 @@ services:
     hostname: 'gitlab.techpro.local'
     container_name: 'gitlab'
     networks:
-      gitlab-server-network:
-        ipv4_address: 172.20.0.14
-    ports:
-      - '80:80'
-      - '443:443'
-      - '22:22'
+      gitlabnetwork:
+        ipv4_address: 172.14.0.14
     volumes:
       - '/etc/gitlab:/etc/gitlab'
       - '/var/log/gitlab:/var/log/gitlab'
       - '/var/opt/gitlab:/var/opt/gitlab'
     shm_size: '256m'
 
-  gitlab-runner-1:
-    image: 'gitlab/gitlab-runner:alpine3.13-v14.8.3'
-    container_name: runner-1
-    volumes:
-      - '/var/run/docker.sock:/var/run/docker.sock'
-    networks:
-      gitlab-server-network:
-        ipv4_address: 172.20.0.15
-
-  gitlab-runner-2:
-    container_name: runner-2
-    image: 'gitlab/gitlab-runner:alpine3.13-v14.8.3'
-    volumes:
-      - '/var/run/docker.sock:/var/run/docker.sock'
-    networks:
-      gitlab-server-network:
-        ipv4_address: 172.20.0.16
-
 networks:
-  gitlab-server-network:
+  gitlabnetwork:
     ipam:
       config:
-        - subnet: 172.20.0.0/16
+        - subnet: 172.14.0.0/16

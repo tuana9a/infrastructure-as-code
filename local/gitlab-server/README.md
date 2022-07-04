@@ -1,6 +1,6 @@
 # Configuration
 
-see config in [examples folder](./examples/)
+see config in [examples](./examples/) folder
 
 # How to transfer docker images from computers to computers
 
