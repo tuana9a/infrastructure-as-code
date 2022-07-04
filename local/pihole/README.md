@@ -16,9 +16,13 @@ search Home
 # Other command
 
 ```bash
+sudo systemctl status systemd-resolved.service
+
 sudo systemctl start systemd-resolved.service
+
 sudo systemctl stop systemd-resolved.service
 
 sudo systemctl enable systemd-resolved.service
+
 sudo systemctl disable systemd-resolved.service
 ```
