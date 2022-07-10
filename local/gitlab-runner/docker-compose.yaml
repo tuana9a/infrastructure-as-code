@@ -8,7 +8,7 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
-      runnernetwork:
+      gitlabrunnernetwork:
         ipv4_address: 172.22.0.15
 
   gitlab-runner-2:
@@ -17,11 +17,12 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
-      runnernetwork:
+      gitlabrunnernetwork:
         ipv4_address: 172.22.0.16
 
 networks:
-  runnernetwork:
+  gitlabrunnernetwork:
+    name: gitlab-runner-network
     ipam:
       config:
         - subnet: 172.22.0.0/16
