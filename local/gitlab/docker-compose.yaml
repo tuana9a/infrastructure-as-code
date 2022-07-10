@@ -1,19 +1,19 @@
-version: '3.6'
+version: "3.6"
 
 services:
 
   gitlab:
-    image: 'gitlab/gitlab-ee:14.9.5-ee.0'
-    hostname: 'gitlab.techpro.local'
-    container_name: 'gitlab'
+    image: "gitlab/gitlab-ee:14.9.5-ee.0"
+    hostname: "gitlab.techpro.local"
+    container_name: "gitlab"
     networks:
       gitlabnetwork:
         ipv4_address: 172.14.0.14
     volumes:
-      - '/etc/gitlab:/etc/gitlab'
-      - '/var/log/gitlab:/var/log/gitlab'
-      - '/var/opt/gitlab:/var/opt/gitlab'
-    shm_size: '256m'
+      - "/etc/gitlab:/etc/gitlab"
+      - "/var/log/gitlab:/var/log/gitlab"
+      - "/var/opt/gitlab:/var/opt/gitlab"
+    shm_size: "256m"
 
 networks:
   gitlabnetwork:

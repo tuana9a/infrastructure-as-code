@@ -1,21 +1,21 @@
-version: '3.6'
+version: "3.6"
 
 services:
 
   gitlab-runner-1:
-    image: 'gitlab/gitlab-runner:alpine3.13-v14.8.3'
+    image: "gitlab/gitlab-runner:alpine3.13-v14.8.3"
     container_name: gitlab-runner-1
     volumes:
-      - '/var/run/docker.sock:/var/run/docker.sock'
+      - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
       runnernetwork:
         ipv4_address: 172.22.0.15
 
   gitlab-runner-2:
     container_name: gitlab-runner-2
-    image: 'gitlab/gitlab-runner:alpine3.13-v14.8.3'
+    image: "gitlab/gitlab-runner:alpine3.13-v14.8.3"
     volumes:
-      - '/var/run/docker.sock:/var/run/docker.sock'
+      - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
       runnernetwork:
         ipv4_address: 172.22.0.16
