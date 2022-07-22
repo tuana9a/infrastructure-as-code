@@ -1,0 +1,56 @@
+version: "2.2"
+
+services:
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${VERSION}
+    container_name: es01
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./es01.conf.yaml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ${CERTS_HOST_DIR}:${CERTS_DIR}
+    networks:
+      temp:
+        ipv4_address: 172.19.0.11
+
+  es02:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${VERSION}
+    container_name: es02
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./es02.conf.yaml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ${CERTS_HOST_DIR}:${CERTS_DIR}
+    networks:
+      temp:
+        ipv4_address: 172.19.0.12
+
+  es03:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${VERSION}
+    container_name: es03
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./es03.conf.yaml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ${CERTS_HOST_DIR}:${CERTS_DIR}
+    networks:
+      temp:
+        ipv4_address: 172.19.0.13
+
+networks:
+  temp:
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16

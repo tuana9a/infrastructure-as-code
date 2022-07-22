@@ -1,0 +1,13 @@
+cluster.initial_master_nodes:
+- 172.29.0.11
+- 172.29.0.12
+- 172.29.0.13
+cluster.name: es-cluster
+discovery.seed_hosts:
+- 172.29.0.11
+- 172.29.0.12
+- 172.29.0.13
+network.bind_host: 0.0.0.0
+node.name: es
+transport.publish_host: 0.0.0.0
+
